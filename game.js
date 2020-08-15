@@ -3,6 +3,8 @@ const choices = Array.from(document.getElementsByClassName("choice-text"));
 const questionCounterText = document.getElementById("questionCounter");
 const scoreText = document.getElementById("score");
 
+var timerEl = document.getElementById("countdown");
+
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
@@ -11,22 +13,28 @@ let availableQuestions = [];
 
 let questions = [
     {
-        question: "Inside which HTML element do we put the Javascript?",
-        choice1: "<script>",
-        choice2: "<javascript>",
+        question: "Question #1",
+        choice1: "Pick Me!",
+        choice2: "No, just don't",
         answer: "1"
     },
     {
-        question: "Question2",
-        choice1: "<script>",
-        choice2: "<javascript>",
+        question: "Question #2",
+        choice1: "Pick Me!",
+        choice2: "Go Away!",
         answer: "1"
     },
     {
-        question: "Question3",
-        choice1: "<script>",
-        choice2: "<javascript>",
-        answer: "1"
+        question: "Question #3",
+        choice1: "Don't even try it!",
+        choice2: "Pick Me!",
+        answer: "2"
+    },
+    {
+        question: "Question #4",
+        choice1: "I said, DON'T click me!",
+        choice2: "Pick Me!",
+        answer: "2"
     }
 ];
 
@@ -54,7 +62,7 @@ getNewQuestion = function () {
     questionCounter++;
     questionCounterText.innerText = questionCounter + "/" + MAX_QUESTIONS; 
 
-    // questions displayed
+    // questions displayed randomly
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionIndex];
         question.innerText = currentQuestion.question;
@@ -66,7 +74,10 @@ getNewQuestion = function () {
 
         availableQuestions.splice(questionIndex, 1);
         acceptingAnswers = true;
-};
+    }
+
+    // when timer is 0, get next question
+
 
 // choices if they got the correct or incorrect answer
 choices.forEach(choice => {
@@ -95,6 +106,24 @@ choices.forEach(choice => {
      
     });
 });
+
+// Timer that counts down from 5
+function countdown() {
+    var timeLeft = 5;
+  
+    var timeInterval = setInterval(function() {
+      if (timeLeft > 1) {
+        timerEl.textContent = timeLeft + ' seconds remaining';
+        timeLeft--;
+      } else if (timeLeft === 1) {
+        timerEl.textContent = timeLeft + ' second remaining';
+        timeLeft--;
+      } else {
+        timerEl.textContent = '';
+        clearInterval(timeInterval);
+      }
+    }, 1000);
+};
 
 incrementScore = num => {
     score +=num;

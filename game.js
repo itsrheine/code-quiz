@@ -1,7 +1,7 @@
-const question = document.getElementById('question');
-const choices = Array.from(document.getElementsByClassName('choice-text'));
-const questionCounterText = document.getElementById('questionCounter');
-const scoreText = document.getElementById('score');
+const question = document.getElementById("question");
+const choices = Array.from(document.getElementsByClassName("choice-text"));
+const questionCounterText = document.getElementById("questionCounter");
+const scoreText = document.getElementById("score");
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -11,22 +11,22 @@ let availableQuestions = [];
 
 let questions = [
     {
-        question: 'Inside which HTML element do we put the Javascript?',
-        choice1: '<script>',
-        choice2: '<javascript>',
-        answer: '1'
+        question: "Inside which HTML element do we put the Javascript?",
+        choice1: "<script>",
+        choice2: "<javascript>",
+        answer: "1"
     },
     {
-        question: 'Question2',
-        choice1: '<script>',
-        choice2: '<javascript>',
-        answer: '1'
+        question: "Question2",
+        choice1: "<script>",
+        choice2: "<javascript>",
+        answer: "1"
     },
     {
-        question: 'Question3',
-        choice1: '<script>',
-        choice2: '<javascript>',
-        answer: '1'
+        question: "Question3",
+        choice1: "<script>",
+        choice2: "<javascript>",
+        answer: "1"
     }
 ];
 
@@ -46,9 +46,9 @@ getNewQuestion = function () {
     // when there are no more questions left 
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS){
         // save the player score
-        localStorage.setItem('mostRecentScore', score);
+        localStorage.setItem("mostRecentScore", score);
         // go to end of page
-        return window.location.assign('/end.html');
+        return window.location.assign("end.html");
     }
 
     questionCounter++;
@@ -60,8 +60,8 @@ getNewQuestion = function () {
         question.innerText = currentQuestion.question;
 
         choices.forEach( choice => {
-            const number = choice.dataset['number'];
-            choice.innerText = currentQuestion['choice' + number];
+            const number = choice.dataset["number"];
+            choice.innerText = currentQuestion["choice" + number];
         });
 
         availableQuestions.splice(questionIndex, 1);
@@ -70,19 +70,19 @@ getNewQuestion = function () {
 
 // choices if they got the correct or incorrect answer
 choices.forEach(choice => {
-    choice.addEventListener('click', e => {
+    choice.addEventListener("click", e => {
         if(!acceptingAnswers) return;
 
         acceptingAnswers = false;
         const selectedChoice = e.target;
-        const selectedAnswer = selectedChoice.dataset['number'];
+        const selectedAnswer = selectedChoice.dataset["number"];
         
         const classToApply =
         // giving it a default value
-            selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+            selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
             // calling the score
-            if (classToApply === 'correct') {
+            if (classToApply === "correct") {
                 incrementScore(CORRECT_BONUS);
             }
 

@@ -43,11 +43,13 @@ startGame = function () {
 
 getNewQuestion = function () {
  
-        // when there are no more questions left 
-        if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS){
-            // go to end of page
-            return window.location.assign('/end.html');
-        }
+    // when there are no more questions left 
+    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS){
+        // save the player score
+        localStorage.setItem('mostRecentScore', score);
+        // go to end of page
+        return window.location.assign('/end.html');
+    }
 
     questionCounter++;
     questionCounterText.innerText = questionCounter + "/" + MAX_QUESTIONS; 

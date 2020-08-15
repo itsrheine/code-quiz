@@ -1,8 +1,7 @@
-const question = document.getElementById("question");
-const choices = Array.from(document.getElementsByClassName("choice-text"));
+const question = document.getElementById('question');
+const choices = Array.from(document.getElementsByClassName('choice-text'));
 const questionCounterText = document.getElementById('questionCounter');
 const scoreText = document.getElementById('score');
-const startingMinutes = 10;
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -12,22 +11,22 @@ let availableQuestions = [];
 
 let questions = [
     {
-        question: "Inside which HTML element do we put the Javascript?",
-        choice1: "<script>",
-        choice2: "<javascript>",
-        answer: "1"
+        question: 'Inside which HTML element do we put the Javascript?',
+        choice1: '<script>',
+        choice2: '<javascript>',
+        answer: '1'
     },
     {
-        question: "Question2",
-        choice1: "<script>",
-        choice2: "<javascript>",
-        answer: "1"
+        question: 'Question2',
+        choice1: '<script>',
+        choice2: '<javascript>',
+        answer: '1'
     },
     {
-        question: "Question3",
-        choice1: "<script>",
-        choice2: "<javascript>",
-        answer: "1"
+        question: 'Question3',
+        choice1: '<script>',
+        choice2: '<javascript>',
+        answer: '1'
     }
 ];
 
@@ -43,7 +42,7 @@ startGame = function () {
 };
 
 getNewQuestion = function () {
-
+ 
         // when there are no more questions left 
         if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS){
             // go to end of page
@@ -51,32 +50,34 @@ getNewQuestion = function () {
         }
 
     questionCounter++;
-    questionCounterText.innerText = questionCounter + "/" + MAX_QUESTIONS;
+    questionCounterText.innerText = questionCounter + "/" + MAX_QUESTIONS; 
 
+    // questions displayed
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionIndex];
         question.innerText = currentQuestion.question;
 
         choices.forEach( choice => {
-            const number = choice.dataset["number"];
-            choice.innerText = currentQuestion["choice" + number];
+            const number = choice.dataset['number'];
+            choice.innerText = currentQuestion['choice' + number];
         });
 
         availableQuestions.splice(questionIndex, 1);
         acceptingAnswers = true;
 };
 
+// choices if they got the correct or incorrect answer
 choices.forEach(choice => {
-    choice.addEventListener("click", e => {
+    choice.addEventListener('click', e => {
         if(!acceptingAnswers) return;
 
         acceptingAnswers = false;
         const selectedChoice = e.target;
-        const selectedAnswer = selectedChoice.dataset["number"];
+        const selectedAnswer = selectedChoice.dataset['number'];
         
         const classToApply =
         // giving it a default value
-            selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+            selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
 
             // calling the score
             if (classToApply === 'correct') {
@@ -97,6 +98,5 @@ incrementScore = num => {
     score +=num;
     scoreText.innerText = score;
 }
-
 
 startGame();

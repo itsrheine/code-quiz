@@ -1,6 +1,6 @@
 root {
     background-color: #ecf5ff;
-    font-size: 62.5%;
+    font-size: 55%;
 }
 
 *{
@@ -19,24 +19,24 @@ h4 {
 }
 
 h1 {
-    font-size: 5.4rem;
+    font-size: 2.6rem;
     color: #56a5eb;
     margin-bottom: 5rem;
 }
 
 h1 > span {
-    font-size: 2.4rem;
+    font-size: 1.5rem;
     font-weight: 500;
 }
 
 h2 {
-    font-size: 4.2rem;
+    font-size: 2.2rem;
     margin-bottom: 4rem;
     font-weight: 700;
 }
 
 h3 {
-    font-size: 2.8rem;
+    font-size: 2rem;
     font-weight: 500;
 }
 
@@ -81,7 +81,7 @@ h3 {
 
 /* buttons */
 .btn {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     padding: 1rem 0;
     width: 20rem;
     text-align: center;
@@ -117,7 +117,7 @@ input {
     margin-bottom: 1rem;
     width: 20rem;
     padding: 1.5rem;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     border: none;
     box-shadow: 0 0.1rem 1.4 rem 0 rgba(86, 185, 235, 0.5);
 }

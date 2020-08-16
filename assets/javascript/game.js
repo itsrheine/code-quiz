@@ -114,7 +114,7 @@ getNewQuestion = function () {
         // save the player score
         localStorage.setItem("mostRecentScore", score);
         // go to end of page
-        return window.location.href("/assets/html/end.html");
+        return window.location.href("/code-quiz/assets/html/end.html");
     }
 
     questionCounter++;

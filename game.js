@@ -2,8 +2,9 @@ const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const questionCounterText = document.getElementById("questionCounter");
 const scoreText = document.getElementById("score");
+const timerEl = document.getElementById("timer");
 
-var timerEl = document.getElementById("countdown");
+var timeLeft = 120;
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -45,9 +46,30 @@ const MAX_QUESTIONS = 3;
 startGame = function () {
     questionCounter = 0;
     score = 0;
+    timer = 0;
     availableQuestions = [...questions];
     getNewQuestion();
 };
+
+function startTimer() {
+  
+    // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+    var timeInterval = setInterval(function() {
+      if (timeLeft > 1) {
+        timerEl.textContent = timeLeft;
+        timeLeft--;
+      } else if (timeLeft === 1) {
+        timerEl.textContent = timeLeft;
+        timeLeft--;
+      } else {
+        timerEl.textContent = '';
+        clearInterval(timeInterval);
+        window.alert("Game Over! Save your score and try again!");
+        // go to end of page
+        return window.location.assign("end.html");
+      }
+    }, 1000);
+}
 
 getNewQuestion = function () {
  
@@ -76,11 +98,8 @@ getNewQuestion = function () {
         acceptingAnswers = true;
     }
 
-    // when timer is 0, get next question
-
-
-// choices if they got the correct or incorrect answer
-choices.forEach(choice => {
+    // choices if they got the correct or incorrect answer
+    choices.forEach(choice => {
     choice.addEventListener("click", e => {
         if(!acceptingAnswers) return;
 
@@ -92,38 +111,24 @@ choices.forEach(choice => {
         // giving it a default value
             selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
-            // calling the score
+            // correct answer will get additional points
             if (classToApply === "correct") {
                 incrementScore(CORRECT_BONUS);
             }
+            // incorrect answer will get reduced time
+            else if (classToApply !== "correct") {
+                timeLeft = timeLeft - 10;
+            };
 
         selectedChoice.parentElement.classList.add(classToApply);
 
         setTimeout(() => {
-           selectedChoice.parentElement.classList.remove(classToApply); 
+            selectedChoice.parentElement.classList.remove(classToApply); 
             getNewQuestion(); 
         }, 1000);
      
     });
 });
-
-// Timer that counts down from 5
-function countdown() {
-    var timeLeft = 5;
-  
-    var timeInterval = setInterval(function() {
-      if (timeLeft > 1) {
-        timerEl.textContent = timeLeft + ' seconds remaining';
-        timeLeft--;
-      } else if (timeLeft === 1) {
-        timerEl.textContent = timeLeft + ' second remaining';
-        timeLeft--;
-      } else {
-        timerEl.textContent = '';
-        clearInterval(timeInterval);
-      }
-    }, 1000);
-};
 
 incrementScore = num => {
     score +=num;
@@ -131,3 +136,4 @@ incrementScore = num => {
 }
 
 startGame();
+startTimer();

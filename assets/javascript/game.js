@@ -102,7 +102,7 @@ function startTimer() {
         clearInterval(timeInterval);
         window.alert("Game Over! Save your score and try again!");
         // go to end of page
-        return window.location.assign("./assets/html/end.html")
+        return window.location.assign("../assets/html/end.html")
       }
     }, 1000);
 }
@@ -114,7 +114,7 @@ getNewQuestion = function () {
         // save the player score
         localStorage.setItem("mostRecentScore", score);
         // go to end of page
-        return window.location.assign("./assets/html/end.html");
+        return window.location.assign("../assets/html/end.html");
     }
 
     questionCounter++;

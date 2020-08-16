@@ -16,12 +16,14 @@ h2,
 h3,
 h4 {
     margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1rem;
 }
 
 h1 {
     font-size: 2.6rem;
-    color: #56a5eb;
-    margin-bottom: 5rem;
+    color: #4cd863;
+    margin-bottom: 2rem;
 }
 
 h1 > span {
@@ -85,16 +87,16 @@ h3 {
     padding: 1rem 0;
     width: 20rem;
     text-align: center;
-    border: 0.1rem solid #56a5eb;
+    border: 0.1rem solid #4cd863;
     margin-bottom: 1rem;
     text-decoration: none;
-    color: #56a5eb;
+    color: #4cd863;
     background-color: white;
 }
 
 .btn:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(90, 230, 136, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
@@ -119,7 +121,7 @@ input {
     padding: 1.5rem;
     font-size: 1.4rem;
     border: none;
-    box-shadow: 0 0.1rem 1.4 rem 0 rgba(86, 185, 235, 0.5);
+    box-shadow: 0 0.1rem 1.4 rem 0 rgba(90, 230, 136, 0.5);
 }
 
 input::placeholder {

@@ -14,34 +14,70 @@ let availableQuestions = [];
 
 let questions = [
     {
-        question: "Question #1",
-        choice1: "Pick Me!",
-        choice2: "No, just don't",
-        answer: "1"
-    },
-    {
-        question: "Question #2",
-        choice1: "Pick Me!",
-        choice2: "Go Away!",
-        answer: "1"
-    },
-    {
-        question: "Question #3",
-        choice1: "Don't even try it!",
-        choice2: "Pick Me!",
+        question: "What should values always be closed in?",
+        choice1: "Parenthesis",
+        choice2: "Quotation Marks",
         answer: "2"
     },
     {
-        question: "Question #4",
-        choice1: "I said, DON'T click me!",
-        choice2: "Pick Me!",
+        question: "What git command allows a user to download a repository from GitHub to a user's computer?",
+        choice1: "git commit",
+        choice2: "git clone",
+        answer: "2"
+    },
+    {
+        question: "How do you stage files for a commit in GitBash?",
+        choice1: "git add",
+        choice2: "git stage",
+        answer: "1"
+    },
+    {
+        question: "How do you round a number (5.25) to the nearest integer?",
+        choice1: "Math.round(5.25)",
+        choice2: "Math.Round(5.25)",
+        answer: "1"
+    },
+    {
+        question: "The '#' symbol specifies that the selector is?",
+        choice1: "class",
+        choice2: "id",
+        answer: "2"
+    },
+    {
+        question: "In CSS, which of the following property is used to set the height of an image?",
+        choice1: "width",
+        choice2: "height",
+        answer: "2"
+    },
+    {
+        question: "In CSS, which of the following property changes the width of top border?",
+        choice1: ":border-bottom-width",
+        choice2: ":border-top-width",
+        answer: "2"
+    },    
+    {
+        question: "In CSS, which of the following property is used to set the height of an image?",
+        choice1: "width",
+        choice2: "height",
+        answer: "2"
+    },    
+    {
+        question: "In CSS, what property is used to change the text color of an element?",
+        choice1: "color",
+        choice2: "font-color",
+        answer: "1"
+    },
+    {
+        question: "What does CSS stand for?",
+        choice1: "Colorful Style Sheets",
+        choice2: "Cascading Style Sheets",
         answer: "2"
     }
 ];
 
 // constants
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 10;
 
 startGame = function () {
     questionCounter = 0;

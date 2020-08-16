@@ -39,5 +39,5 @@ saveHighScore = (e) => {
     localStorage.setItem("highScores", JSON.stringify(highScores));
     
     // go back home
-    window.location.assign("index.html");
+    window.location.assign("/code-quiz");
 };
